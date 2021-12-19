@@ -1,1 +1,1 @@
-# Capstone_project_Humanely
+# Capstone_project_Hotel
