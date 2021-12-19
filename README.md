@@ -1,1 +1,1 @@
-# Capstone_project_Hotel
+# Capstone_project_Hotel_managment
