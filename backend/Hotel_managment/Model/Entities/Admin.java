@@ -1,6 +1,10 @@
 package com.example.Hotel_managment.Model.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -13,15 +17,25 @@ public class Admin {
     private int phone ;
     private  int password;
 
+    @OneToMany(mappedBy = "admin")
+    @JsonIgnore
+
+    private List<Hotel> items = new ArrayList<>();
+//    @ManyToOne()
+//    //f-key
+//    @JoinColumn(name = "hospital_id", referencedColumnName = "id")
+//    private Hotel hotel;
+
     public Admin() {
     }
 
-    public Admin(int id, String name, String email, int phone, int password) {
+    public Admin(int id, String name, String email, int phone, int password, List<Hotel> items) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.items = items;
     }
 
     public int getId() {
@@ -64,14 +78,11 @@ public class Admin {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone=" + phone +
-                ", password=" + password +
-                '}';
+    public List<Hotel> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Hotel> items) {
+        this.items = items;
     }
 }

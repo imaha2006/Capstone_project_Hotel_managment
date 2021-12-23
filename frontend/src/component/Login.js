@@ -19,12 +19,12 @@ function Login(){
         }
 
         );
-   function handndleClickDel(){
-       axios({
-           method:"delete",
-           url:"delete/{adminId}"
-       })
-   }
+//    function handndleClickDel(){
+//        axios({
+//            method:"delete",
+//            url:"delete/{adminId}"
+//        })
+//    }
  }
 return(
     <div>
@@ -35,7 +35,7 @@ return(
         Phone <input type="text" name="phone" onChange={(event) => {setPhone(event.target.value)}}/><br></br>
         Password <input type="text" name="password" onChange={(event) => {setPassword(event.target.value)}}/><br></br>
         <button onClick={Register}>ADD</button>
-        <button onClick={Register}>delete</button>
+        {/* <button onClick={Register}>delete</button> */}
 
     </div>
 );

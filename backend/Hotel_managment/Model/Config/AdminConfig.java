@@ -10,11 +10,6 @@ import java.util.List;
 
 @Configuration
 public class AdminConfig {
-@Bean
-    CommandLineRunner commandLineRunner(AdminRepository repository){
-    return args -> {
-        Admin hh = new Admin(1,"hh","ttt@jj",888,9765);
-              repository.saveAll(List.of(hh ));
-    };
-}
+//@Bean
+
 }
