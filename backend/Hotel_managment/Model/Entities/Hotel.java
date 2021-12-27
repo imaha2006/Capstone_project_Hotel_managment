@@ -22,18 +22,19 @@ public class Hotel {
 
     @ManyToOne()
     //f-key
-    @JoinColumn( referencedColumnName = "id")
+    @JoinColumn( name= "admin_id", referencedColumnName = "id")
     private Admin admin;
 
-//    @OneToMany(mappedBy = "hotel")
-//    @JsonIgnore
-//
-//    private List<Admin> items = new ArrayList<>();
+
+    @OneToMany(mappedBy = "hotel")
+    @JsonIgnore
+
+    private List<Room> items = new ArrayList<>();
 
     public Hotel() {
     }
 
-    public Hotel(int idHotel, String name, String email, String address, int numberRoom, int tel, Admin admin) {
+    public Hotel(int idHotel, String name, String email, String address, int numberRoom, int tel, Admin admin, List<Room> items) {
         this.idHotel = idHotel;
         this.name = name;
         this.email = email;
@@ -41,13 +42,14 @@ public class Hotel {
         this.numberRoom = numberRoom;
         this.tel = tel;
         this.admin = admin;
+        this.items = items;
     }
 
-    public int getId() {
+    public int getIdHotel() {
         return idHotel;
     }
 
-    public void setId(int idHotel) {
+    public void setIdHotel(int idHotel) {
         this.idHotel = idHotel;
     }
 
@@ -97,5 +99,27 @@ public class Hotel {
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
+    }
+
+    public List<Room> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Room> items) {
+        this.items = items;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "idHotel=" + idHotel +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", numberRoom=" + numberRoom +
+                ", tel=" + tel +
+                ", admin=" + admin +
+                ", items=" + items +
+                '}';
     }
 }

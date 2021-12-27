@@ -16,17 +16,18 @@ public class Room {
 
     @ManyToOne()
     //f-key
-    @JoinColumn( referencedColumnName = "numberRoom")
+    @JoinColumn( referencedColumnName = "idHotel", name = "hotel_id")
     private Hotel hotel;
 
     public Room() {
     }
 
-    public Room(int numberRoom, int price, String typeRoom, String address) {
+    public Room(int numberRoom, int price, String typeRoom, String address, Hotel hotel) {
         this.numberRoom = numberRoom;
         this.price = price;
         this.typeRoom = typeRoom;
         this.address = address;
+        this.hotel = hotel;
     }
 
     public int getNumberRoom() {
