@@ -1,4 +1,4 @@
-/* @keyframes App-logo-spin {
+ @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -6,7 +6,6 @@
     transform: rotate(360deg);
   }
 }
-
 .addForm {
   background: linear-gradient(to bottom, #0099ff 0%, #fff 100%);
 }
@@ -23,27 +22,27 @@
   border-radius: 0px;
 }
 
-/* .homeLinks {
+ .homeLinks {
   width: 40%;
   margin: 200px auto;
 }
- */
-.homeLinks a {
+ 
+ .homeLinks a {
   text-decoration: none;
   color: white;
   padding: 20px;
   margin: 50px;
-  /* width: 50%;
- */
+   width: 50%;
+ 
   background-color: dodgerblue;
   display: block;
   text-align: center;
 }
-
-* {
+/* 
+ {
   margin: 0px;
   padding: 0px;
-}
+} */
 .login,
 .homeLinks {
   background: linear-gradient(to bottom, #0099ff 0%, #fff 100%);
@@ -103,8 +102,8 @@ p a {
   opacity: 0.8;
 }
 
-/* On mouse-over, add a grey background color */
-.custom-checkbox:hover input ~ .checkmark {
+ On mouse-over, add a grey background color */
+ .custom-checkbox:hover input ~ .checkmark {
   background-color: #747474;
 }
 @media (max-width: 767px) {
@@ -121,4 +120,4 @@ p a {
 }
 p {
   text-align: center;
-}
+} 
