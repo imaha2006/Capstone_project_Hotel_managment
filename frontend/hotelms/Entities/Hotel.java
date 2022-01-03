@@ -28,14 +28,6 @@ public class Hotel {
     public Hotel() {
     }
 
-//    public Hotel(int idHotel, String name, String address, int phone, String email) {
-//        this.idHotel = idHotel;
-//        this.name = name;
-//        this.address = address;
-//        this.phone = phone;
-//        this.email = email;
-//    }
-
 
     public Hotel(int idHotel, String name, String address, int phone, String email, Admin admin, List<Room> items) {
         this.idHotel = idHotel;
