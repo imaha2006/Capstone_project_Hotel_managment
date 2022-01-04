@@ -24,7 +24,8 @@ export default function App() {
        <Link to='/AddRoom'>AddRoom</Link>|{"    "}
        <Link to='/AddMeal'>AddMeal</Link>|{"    "} 
        <Link to='/Try'>Try</Link>|{"    "} 
-       <Link to='/Loginn'>Loginn</Link>|{"    "}       
+       <Link to='/AdminHome'>AdminHome</Link>|{"    "} 
+            
           </ul>
           <Outlet />
 
