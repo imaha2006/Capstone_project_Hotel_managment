@@ -1,42 +1,40 @@
-
-
-
 import React from "react"
 import { Link } from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
 
 export default function App() {
-    let [nameMeal, setNameMeal] = useState("")
+    let [numberRoom, setNumberRoom] = useState("")
+    let [typeRoom, setTypeRoom] = useState("")
     let [price, setPrice] = useState("")
-    let [type, setType] = useState("")
-    let [idHotel, setidHotel] = useState("")
 
-    function handleId(event) {setNameMeal((nameMeal= event.target.value)); }
-    function handlePrice(event) {setPrice((price= event.target.value)); }
-    function handlType(event) {setType((type= event.target.value));}
-    function handleidH(event) {setidHotel((idHotel= event.target.value));}
+    let [idHotel, setIdHotel] = useState("")
     
+
+    function handleId(event) {setNumberRoom((numberRoom= event.target.value)); }
+    function handlType(event) {setTypeRoom((typeRoom= event.target.value));}
+    function handlePrice(event) {setPrice((price= event.target.value)); }
+
+    function handleIdH(event) {setIdHotel((idHotel= event.target.value)); }
+
     let Myhotel={
         idHotel:idHotel,
     }
-
-    let MyMeal ={
-        nameMeal:nameMeal,
+    let MyRoom ={
+        numberRoom:numberRoom,
+        typeRoom:typeRoom,
         price:price,
-        type:type,
         hotel:Myhotel,
-
     }
 
         
   function handleClickAdd(){
     console.log("in fun")
-    console.log(MyMeal)
+    console.log(MyRoom)
     axios({
     method:'post',
-    url:'api/Restaurant/add',
-      data: MyMeal,
+    url:'api/room/add',
+      data: MyRoom,
     });
     }
     return (
@@ -47,20 +45,19 @@ export default function App() {
    <br />
    <input type="text" placeholder="ID" id="name" name="name" onChange={handleId} />
    <br />
-   <label htmlFor="name">Price: </label>
+   <label htmlFor="name">Name: </label>
    <br />
    <input type="text" placeholder="Name.." id="name" name="name" onChange={handlType} />
    <br />
-   <label htmlFor="name">Type: </label>
+   <label htmlFor="name">Address: </label>
    <br />
    <input type="text" placeholder="address" id="name" name="name" onChange={handlePrice} />
    <br />
    <label htmlFor="id">ID:</label>
    <br />
-   <input type="text" placeholder="ID" id="name" name="name" onChange={handleidH} />
-
+   <input type="text" placeholder="ID" id="name" name="name" onChange={handleIdH} />
    
-   <Link to="/Meal"><td><button onClick={handleClickAdd} >add..</button></td></Link>
+   <Link to="/Room"><td><button onClick={handleClickAdd} >add..</button></td></Link>
    <br></br>
    <br></br>
    </form>

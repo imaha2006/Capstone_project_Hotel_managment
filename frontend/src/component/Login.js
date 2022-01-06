@@ -7,12 +7,25 @@ import axios from "axios"
 export default function Login(props) {
     let [username, setname] = useState("")
     let [password, setpassword] = useState("")
+
     function handlename(event) {
         setname((username = event.target.value));
     }
     function handlepassword(event) {
         setpassword((password = event.target.value));
     }
+    let myAdmin={
+        username:username,
+        password:password,
+
+     }
+function handleClick(){
+    axios({
+        method:'post',
+        url:'api/admin/add',
+        data:myAdmin,
+    })
+}
     function handleSubmit(event) {
         event.preventDefault();
         axios({
@@ -32,7 +45,7 @@ export default function Login(props) {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form >
                 <input
                     type="text"
                     value={username}
@@ -49,8 +62,9 @@ export default function Login(props) {
                 />
                 <br />
                 <input type="submit"
-                    value="submit"
+                    value="submit" onClick={handleSubmit}
                 />
+                <button onClick={handleClick}>Regst</button>
             </form>
         </div>
     )

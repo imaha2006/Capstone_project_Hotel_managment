@@ -33,4 +33,9 @@ public class HotelController {
     public void registerNewHotel(@RequestBody Hotel hotel) {
         hotelService.addNewHotel(hotel);
     }
+    //
+    @DeleteMapping(path = "delete/{hotelId}")
+    public void deleteHotel(@PathVariable ("hotelId") Integer hotelId){
+        hotelService.deleteHotel(hotelId);
+    }
 }

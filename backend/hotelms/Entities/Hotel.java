@@ -15,6 +15,7 @@ public class Hotel {
     private String address;
     private int phone;
     private String email;
+    private String img;
 
     @ManyToOne
     @JoinColumn(name = "admin_id" , referencedColumnName = "username")
@@ -28,26 +29,17 @@ public class Hotel {
     public Hotel() {
     }
 
-//    public Hotel(int idHotel, String name, String address, int phone, String email) {
-//        this.idHotel = idHotel;
-//        this.name = name;
-//        this.address = address;
-//        this.phone = phone;
-//        this.email = email;
-//    }
 
-
-    public Hotel(int idHotel, String name, String address, int phone, String email, Admin admin, List<Room> items) {
+    public Hotel(int idHotel, String name, String address, int phone, String email, String img, Admin admin, List<Room> items) {
         this.idHotel = idHotel;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
+        this.img = img;
         this.admin = admin;
         this.items = items;
     }
-
-
 
     public int getIdHotel() {
         return idHotel;
@@ -89,6 +81,14 @@ public class Hotel {
         this.email = email;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public Admin getAdmin() {
         return admin;
     }
@@ -113,6 +113,7 @@ public class Hotel {
                 ", address='" + address + '\'' +
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
+                ", img='" + img + '\'' +
                 ", admin=" + admin +
                 ", items=" + items +
                 '}';

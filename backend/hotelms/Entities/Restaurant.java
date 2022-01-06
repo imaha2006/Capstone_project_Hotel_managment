@@ -9,28 +9,23 @@ public class Restaurant {
     private String nameMeal;
     private String price;
     private String type;
-
+    private String img;
 
     @OneToOne//(cascade = CascadeType.ALL)
     @JoinColumn(name ="H_id" )
     private Hotel hotel;
 
 
-//    public Restaurant(String nameMeal, String price, String type) {
-//        this.nameMeal = nameMeal;
-//        this.price = price;
-//        this.type = type;
-//    }
 
+    public Restaurant() {
+    }
 
-    public Restaurant(String nameMeal, String price, String type, Hotel hotel) {
+    public Restaurant(String nameMeal, String price, String type, String img, Hotel hotel) {
         this.nameMeal = nameMeal;
         this.price = price;
         this.type = type;
+        this.img = img;
         this.hotel = hotel;
-    }
-
-    public Restaurant() {
     }
 
     public String getNameMeal() {
@@ -57,6 +52,14 @@ public class Restaurant {
         this.type = type;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public Hotel getHotel() {
         return hotel;
     }
@@ -71,6 +74,7 @@ public class Restaurant {
                 "nameMeal='" + nameMeal + '\'' +
                 ", price='" + price + '\'' +
                 ", type='" + type + '\'' +
+                ", img='" + img + '\'' +
                 ", hotel=" + hotel +
                 '}';
     }

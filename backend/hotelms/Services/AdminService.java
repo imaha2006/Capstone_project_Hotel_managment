@@ -39,4 +39,17 @@ public class AdminService {
             adminRepository.deleteById(adminId);
         }
 
+
+    public String getCheck(String username ,String password) {
+        if( adminRepository.existsById(username)  ) {
+
+            String Admin = adminRepository.findByUsername(username);
+            if (Admin.equals(password)) {
+                return "welcome you Authentication";
+            } else {
+                return " sorry not  Authentication";
+            }
+        }
+        return "sorry not  Authentication";
+    }
 }

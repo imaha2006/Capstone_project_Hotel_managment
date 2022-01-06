@@ -10,7 +10,8 @@ export default function App() {
   let [address, setAddress] = useState("")
   let [phone, setPhone] = useState("")
   let [email, setEmail] = useState("")
-  
+  let[username,setUsername] =useState("")
+  let[img,setImg] =useState("")
 
 
   function handleId(event) {setIdHotel((idHotel= event.target.value)); }
@@ -18,7 +19,11 @@ export default function App() {
   function handleAddress(event) {setAddress((address= event.target.value)); }
   function handlePhone(event) {setPhone((phone= event.target.value));}
   function handleEmail(event) {setEmail((email= event.target.value));}
-
+  function handleUser(event) {setUsername((username= event.target.value));}
+  function handleImg(event) {setImg((img= event.target.value));}
+let MyAdmin={
+  username:username,
+}
 
   let MyHotel ={
     idHotel:idHotel,
@@ -26,6 +31,8 @@ export default function App() {
     address:address,
     phone:phone,
     email:email,
+    admin:MyAdmin,
+    img:img,
   }
 
   function handleClickAdd(){
@@ -94,8 +101,15 @@ export default function App() {
          <br />
          <input type="text" placeholder="Email :" id="name" name="name" onChange={handleEmail} />
          <br></br>
-         
-         <Link to="/Try"><td><button onClick={handleClickAdd} >add..</button></td></Link>
+         <label htmlFor="id">ID:</label>
+         <br />
+         <input type="text" placeholder="ID" id="name" name="name" onChange={handleUser} />
+         <br />
+         <label htmlFor="id">img:</label>
+         <br />
+         <input type="text" placeholder="img" id="name" name="name" onChange={handleImg} />
+         <br />
+         <Link to="/Try1"><td><button onClick={handleClickAdd} >add..</button></td></Link>
          <br></br>
          <br></br>
          </form>

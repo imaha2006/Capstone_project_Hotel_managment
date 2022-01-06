@@ -32,7 +32,7 @@ render() {
                         <div ></div>
                          <div >
                            <div >
-                      {/* <img height="200" width="200" src={item.treetype.image} /> */}
+                      <img height="200" width="200" src={item.img} />
                          </div>
                         </div>
                       <div >
@@ -40,9 +40,7 @@ render() {
                         <div>
                         <p>Name :{item.name} </p>
                         <p> Address : {item.address}</p>
-                        {/* <p>Event Name :{item.events.eventName} </p> */}
-                        
-                        {/* <p>{item.treetype.type}</p> */}
+                         <p>*************</p>
                         </div>
                        <div >
 </div>

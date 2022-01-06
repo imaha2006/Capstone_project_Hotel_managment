@@ -33,6 +33,19 @@ public class AdminController {
         adminService.addNewAdmin(admin);
     }
 
+
+    @GetMapping(path = "login")
+    public String checkLogin(@RequestParam (name = "username") String username ,
+                             @RequestParam (name = "password")
+            String password ) {
+        return adminService.getCheck(username,password);
+
+    }
+
+
+
+
+
     @DeleteMapping(path = "delete/{adminId}")
     public void deleteAdmin(@PathVariable ("adminId") String adminId){
         adminService.deleteAdmin(adminId);

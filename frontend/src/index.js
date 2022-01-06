@@ -6,8 +6,10 @@ import Home from './component/Home';
 import Login from './component/Login';
 import Branch from './component/Branch';
 import AdminHome from './AdminHome';
-//import AddMeal from './AddMeal';
-//import AdRoom from './Adroom';
+import AddMeal from './AddMeal';
+import Meal from './component/Room';
+import AddRoom from './AddRoom';
+import Room from './component/Room';
 // import BranchName from './BranchName';
   import Try1 from './Try1';
 
@@ -24,9 +26,10 @@ ReactDOM.render(
               <Route path="/Branch/:id" element={<Branch/>}></Route> 
               <Route path="/AdminHome" element={< AdminHome />}></Route> 
               {/* <Route path="/BranchName"  element={<BranchName />} /> */}
-              {/* <Route path="/AddRoom"  element={<AdRoom />} />           
-             <Route path="/addMeal" element={<AddMeal />} /> */}
-             {/* <Route path="/Try" element={<Try />} ></Route> */}
+              <Route path="/AddRoom"  element={<AddRoom />} />           
+              <Route path="/Room"  element={<Room />} />           
+
+             <Route path="/addMeal" element={<AddMeal />} />
              <Route path="Try1" element={<Try1 />} />
             
           </Routes>

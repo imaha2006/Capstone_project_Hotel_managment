@@ -10,7 +10,7 @@ public class Room {
     private String numberRoom;
     private String typeRoom;
     private String price;
-
+    private String img;
 
     @ManyToOne
     @JoinColumn(name = "H_id" , referencedColumnName = "idHotel")
@@ -19,17 +19,11 @@ public class Room {
     public Room() {
     }
 
-//    public Room(String numberRoom, String typeRoom, String price) {
-//        this.numberRoom = numberRoom;
-//        this.typeRoom = typeRoom;
-//        this.price = price;
-//    }
-
-
-    public Room(String numberRoom, String typeRoom, String price, Hotel hotel) {
+    public Room(String numberRoom, String typeRoom, String price, String img, Hotel hotel) {
         this.numberRoom = numberRoom;
         this.typeRoom = typeRoom;
         this.price = price;
+        this.img = img;
         this.hotel = hotel;
     }
 
@@ -57,6 +51,14 @@ public class Room {
         this.price = price;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public Hotel getHotel() {
         return hotel;
     }
@@ -71,6 +73,7 @@ public class Room {
                 "numberRoom='" + numberRoom + '\'' +
                 ", typeRoom='" + typeRoom + '\'' +
                 ", price='" + price + '\'' +
+                ", img='" + img + '\'' +
                 ", hotel=" + hotel +
                 '}';
     }
