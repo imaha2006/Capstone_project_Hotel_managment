@@ -1,7 +1,7 @@
-
-
 import React, { Component } from "react";
 import axios from "axios"
+
+
 export default class MyMeal extends Component {
     constructor(props) {
         super(props);
@@ -33,6 +33,8 @@ render() {
                         <div ></div>
                          <div >
                            <div >
+                           <img height="200" width="200" src={item.img} />
+
                          </div>
                         </div>
                       <div >
@@ -40,6 +42,7 @@ render() {
                         <div>
                         <p>type :{item.type} </p>
                         <p> price : {item.price}</p>
+                        <p>*****************</p>
                         </div>
                        <div >
 </div>

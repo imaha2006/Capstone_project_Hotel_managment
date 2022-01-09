@@ -30,10 +30,11 @@ render() {
                       <div >
                       </div>
                         <div>
-                        <p>Name :{item.typeRoom} </p>
-                        <p> Price : {item.price}</p>
-                        <p> Name :{item.name} </p>
-                        <p> Address :{item.address} </p>
+                            <p> nhjkl:{item.idHotel}</p>
+                         <p>Name :{item.typeRoom} </p>
+                        <p> Price : {item.price}</p> 
+                         <p> Name :{item.name} </p>
+                        <p> Address :{item.address} </p> 
                         </div>
                        <div >
 </div>

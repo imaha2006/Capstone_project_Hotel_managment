@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios"
+
 export default class MyTry extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +33,7 @@ render() {
                         <div ></div>
                          <div >
                            <div >
-                      <img height="200" width="200" src={item.img} />
+                        <img height="200" width="200" src={item.img} />
                          </div>
                         </div>
                       <div >

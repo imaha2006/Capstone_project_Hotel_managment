@@ -1,6 +1,6 @@
 //import React,{Component} from "react";
 import axios from "axios";
-//import Navbar from "./component/Navbar";
+import Navbar from "./component/Navbar";
 import { Link } from "react-router-dom";
 import React,{useState} from "react";
  
@@ -32,7 +32,7 @@ let MyAdmin={
     phone:phone,
     email:email,
     admin:MyAdmin,
-    img:img,
+    // img:img,
   }
 
   function handleClickAdd(){
@@ -46,7 +46,7 @@ let MyAdmin={
     }
     return (
       <div>
-        <div>
+        {/* <div>
 
         <table>
                <tr>
@@ -78,7 +78,7 @@ let MyAdmin={
              </table>
 
 
-        </div>
+        </div> */}
           <form>
           <h3>ADD Branch..</h3>
          <label htmlFor="id">ID:</label>
@@ -105,9 +105,9 @@ let MyAdmin={
          <br />
          <input type="text" placeholder="ID" id="name" name="name" onChange={handleUser} />
          <br />
-         <label htmlFor="id">img:</label>
+          <label htmlFor="id">img:</label>
          <br />
-         <input type="text" placeholder="img" id="name" name="name" onChange={handleImg} />
+         <input type="text" placeholder="img" id="name" name="name" onChange={handleImg} /> 
          <br />
          <Link to="/Try1"><td><button onClick={handleClickAdd} >add..</button></td></Link>
          <br></br>
@@ -119,137 +119,3 @@ let MyAdmin={
 
 
 
-
-
-
-// class AdminHome extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       data: {},
-//     };
-//   }
-//   onAddNewBranch = (e) => {
-//     e.preventDefault();
-//     // console.log(this.state.idHotel);
-//     console.log(this.state.name);
-//     console.log(this.state.address);
-//     console.log(this.state.phone);
-//     console.log(this.state.email);
-    
-    
-//   };
-
-//   handleInputChange = (e) => {
-//     this.setState({
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-
-//   // Main
-//   render() {
-  //   return (
-  //     <div>
-  //       <Navbar />
-  //       <div>
-  //         <div style={{ overflowX: "auto" }}>
-  //           <h5>All Branches</h5>
-  //           <table>
-  //             <tr>
-  //               <th>ID</th>
-  //               <th> name</th>
-  //               <th></th>
-  //             </tr>
-  //             <tr>
-  //               <td>1</td>
-  //               <td>Jeddah</td>
-  //               <td>
-  //                 <Link to="/branch/1">show more</Link>
-  //               </td>
-  //             </tr>
-  //             <tr>
-  //               <td>2</td>
-  //               <td>Al Riyad</td>
-  //               <td>
-  //                 <Link to="/branch/2">show more</Link>
-  //               </td>
-  //             </tr>
-  //             <tr>
-  //               <td>3</td>
-  //               <td>Mekkah</td>
-  //               <td>
-  //                 <Link to="/branch/3">show more</Link>
-  //               </td>
-  //             </tr>
-  //           </table>
-  //         </div>
-  //         <div style={{ width: "20%", margin: "auto" }}>
-  //           <input
-  //             className="btn"
-  //             type="submit"
-  //             value="Add New Branch"
-  //             onClick={() => {
-  //               this.setState({ addNewBranch: true });
-  //             }}
-  //           />
-  //         </div>
-  //         {this.state.addNewBranch ? (
-  //           <div style={{ width: "30%", margin: "auto" }}>
-  //             <form onSubmit={this.onAddNewBranch} className="login-form">
-  //               <div className="form-group">
-  //                 <input
-  //                   type="text"
-  //                   name="name"
-  //                   onChange={this.handleInputChange}
-  //                   placeholder=" Name"
-  //                 />
-  //               </div>
-  //               <div className="form-group">
-  //                 <input
-  //                   type="text"
-  //                   name="address"
-  //                   onChange={this.handleInputChange}
-  //                   placeholder="Address"
-  //                 />
-  //               </div>
-  //               <div className="form-group">
-  //                 <input
-  //                   type="phone"
-  //                   name="phone"
-  //                   onChange={this.handleInputChange}
-  //                   placeholder="Phone"
-  //                 />
-  //               </div>
-  //               <div className="form-group">
-  //                 <input
-  //                   type="email"
-  //                   name="email"
-  //                   onChange={this.handleInputChange}
-  //                   placeholder="Email"
-  //                 />
-  //               </div>
-
-  //               <input className="btn1" type="submit" value="Add" />
-  //               <input
-  //                 className="close"
-  //                 type="submit"
-  //                 value="close"
-  //                 onClick={() => {
-  //                   this.setState({ addNewBranch: false });
-  //                 }}
-  //               />
-  //             </form>
-  //             <Link to="/Try1"><button>Try1 </button></Link> |{" "}
-  //           </div>
-  //         ) : (
-  //           <div></div>
-  //         )}
-  //       </div>
-  //     </div>
-      
-  //   );
-  // }
-
-
-  
-  //export default AdminHome;

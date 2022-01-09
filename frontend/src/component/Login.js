@@ -1,10 +1,14 @@
 import { useState } from "react"
 import React from "react"
 import axios from "axios"
-
+import Navbar from "../component/Navbar"
+import "../App.css"
+import { Route } from "react-router-dom"
 
 
 export default function Login(props) {
+    console.log("props");
+console.log(props);
     let [username, setname] = useState("")
     let [password, setpassword] = useState("")
 
@@ -36,7 +40,8 @@ function handleClick(){
             .then((res => {
                 console.log(res.data)
                 if (res.data == "welcome you Authentication") {
-                    props.handleLogin();
+                   props.handleLogin();
+                  
                 }
                 else {
                     alert(res.data)
@@ -45,6 +50,34 @@ function handleClick(){
     }
     return (
         <div>
+        <Navbar />
+        <div className="login">
+          <div className="account-login">
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit} className="login-form">
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="username"
+                  onChange={handlename}
+                  placeholder="Username"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="password"
+                  onChange={handlepassword}
+                  placeholder="Password"
+                />
+              </div>
+
+              <input className="btn" type="submit" value="Login" />
+            </form>
+          </div>
+        </div>
+      </div>
+      /*   <div>
             <form >
                 <input
                     type="text"
@@ -66,6 +99,6 @@ function handleClick(){
                 />
                 <button onClick={handleClick}>Regst</button>
             </form>
-        </div>
+        </div> */
     )
 }

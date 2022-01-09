@@ -17,7 +17,7 @@ public class Restaurant {
 
 
 
-    public Restaurant() {
+        public Restaurant() {
     }
 
     public Restaurant(String nameMeal, String price, String type, String img, Hotel hotel) {

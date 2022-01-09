@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import Login from './component/Login';
@@ -19,9 +18,9 @@ export default function App() {
         <div>
             <ul className="ul-list">
             <Link to ='/Home'>Home</Link> |{"        "}
-            <Link to='/Login'>Login</Link>|{"     "}
+            {/* <Link to='/Login'>Login</Link>|{"     "} */}
+            <Link to ='/App'>App</Link> |{"        "}
       <Link to='/Branch'>Branch </Link>|{"   "}
-       <Link to='/BranchName'>BranchName</Link> |{"    "}
        <Link to='/AddRoom'>AddRoom</Link>|{"    "}
        <Link to='/AddMeal'>AddMeal</Link>|{"    "} 
        <Link to='/AdminHome'>AdminHome</Link>|{"    "}
@@ -33,5 +32,4 @@ export default function App() {
 
       </div>
     )
-}
-     
+    }

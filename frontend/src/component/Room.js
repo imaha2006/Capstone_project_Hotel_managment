@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios"
+
 export default class MyRoom extends Component {
     constructor(props) {
         super(props);
@@ -31,6 +32,8 @@ render() {
                         <div ></div>
                          <div >
                            <div >
+                            
+                           <img height="200" width="200" src={item.img} />
                          </div>
                         </div>
                       <div >
@@ -38,6 +41,8 @@ render() {
                         <div>
                         <p>typeRoom :{item.typeRoom} </p>
                         <p> price : {item.price}</p>
+                         <p>typeRoom :{item.hotel.name} </p> 
+                        <p>*****************</p>
                         </div>
                        <div >
 </div>
