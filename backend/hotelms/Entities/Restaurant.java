@@ -15,18 +15,32 @@ public class Restaurant {
     @JoinColumn(name ="H_id" )
     private Hotel hotel;
 
+    @OneToOne
+    @JoinColumn(name ="B_id" )
+    private Branch branch;
 
 
-        public Restaurant() {
-    }
-
-    public Restaurant(String nameMeal, String price, String type, String img, Hotel hotel) {
+    public Restaurant(String nameMeal, String price, String type, String img, Hotel hotel, Branch branch) {
         this.nameMeal = nameMeal;
         this.price = price;
         this.type = type;
         this.img = img;
         this.hotel = hotel;
+        this.branch = branch;
     }
+
+//    public Restaurant(String nameMeal, String price, String type, String img, Hotel hotel) {
+//        this.nameMeal = nameMeal;
+//        this.price = price;
+//        this.type = type;
+//        this.img = img;
+//        this.hotel = hotel;
+//    }
+
+    public Restaurant() {
+    }
+
+
 
     public String getNameMeal() {
         return nameMeal;
@@ -66,6 +80,14 @@ public class Restaurant {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 
     @Override

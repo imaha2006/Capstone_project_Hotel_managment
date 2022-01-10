@@ -15,17 +15,36 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "H_id" , referencedColumnName = "idHotel")
     private Hotel hotel;
+//
+//
+    @ManyToOne
+    @JoinColumn(name = "B_id" , referencedColumnName = "id")
+    private Branch branch;
 
-    public Room() {
-    }
 
-    public Room(String numberRoom, String typeRoom, String price, String img, Hotel hotel) {
+//    public Room(String numberRoom, String typeRoom, String price, String img, Hotel hotel) {
+//        this.numberRoom = numberRoom;
+//        this.typeRoom = typeRoom;
+//        this.price = price;
+//        this.img = img;
+//        this.hotel = hotel;
+//    }
+
+
+    public Room(String numberRoom, String typeRoom, String price, String img, Hotel hotel, Branch branch) {
         this.numberRoom = numberRoom;
         this.typeRoom = typeRoom;
         this.price = price;
         this.img = img;
         this.hotel = hotel;
+        this.branch = branch;
     }
+
+    public Room() {
+    }
+
+
+
 
     public String getNumberRoom() {
         return numberRoom;
@@ -65,6 +84,14 @@ public class Room {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 
     @Override

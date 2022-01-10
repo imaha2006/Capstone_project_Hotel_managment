@@ -22,16 +22,14 @@ public class Admin {
     @JsonIgnore
     private List<Hotel> items= new ArrayList<>();
 
-
-    public Admin() {
-    }
-
     public Admin(String username, String password, List<Hotel> items) {
         this.username = username;
         this.password = password;
         this.items = items;
     }
 
+    public Admin() {
+    }
 
 
     public String getUsername() {

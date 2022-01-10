@@ -4,11 +4,13 @@ import axios from "axios"
 import Navbar from "../component/Navbar"
 import "../App.css"
 import { Route } from "react-router-dom"
+//import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login(props) {
-    console.log("props");
-console.log(props);
+    //const history = useHistory();
+    const navigate = useNavigate();
     let [username, setname] = useState("")
     let [password, setpassword] = useState("")
 
@@ -40,7 +42,8 @@ function handleClick(){
             .then((res => {
                 console.log(res.data)
                 if (res.data == "welcome you Authentication") {
-                   props.handleLogin();
+                  // props.handleLogin();
+                  navigate('/AdminHome');
                   
                 }
                 else {

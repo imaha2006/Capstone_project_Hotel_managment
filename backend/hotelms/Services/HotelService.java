@@ -38,7 +38,7 @@ public class HotelService {
         hotelRepository.deleteById(hotelId);
     }
 
-    //
+
     public void deleteHotel(Integer hotelId) {
         hotelRepository.deleteById(hotelId);
 
