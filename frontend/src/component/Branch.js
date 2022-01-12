@@ -61,7 +61,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
-import Navbar from "./component/Navbar";
+// import Navbar from "./component/Navbar";
 
 export default function App() {
     let [id, setId] = useState("")
@@ -126,7 +126,7 @@ export default function App() {
          <br />
          <input type="text" placeholder="img" id="name" name="name" onChange={handleimg} />
          <br />
-   <Link to="/Room"><td><button onClick={handleClickAdd} >add..</button></td></Link>
+   {/* <Link to="/Room"><td><button onClick={handleClickAdd} >add..</button></td></Link> */}
    <br></br>
    <br></br>
    </form>

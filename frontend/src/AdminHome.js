@@ -32,7 +32,7 @@ let MyAdmin={
     phone:phone,
     email:email,
     admin:MyAdmin,
-    // img:img,
+     img:img,
   }
 
   function handleClickAdd(){
@@ -46,76 +46,76 @@ let MyAdmin={
     }
     return (
       <div>
-        {/* <div>
-
-        <table>
-               <tr>
-                <th>ID</th>
-                <th> name</th>
-                 <th></th>
-               </tr>
-               <tr>
-                 <td>1</td>
-                 <td>Jeddah</td>
-                 <td>
-                   <Link to="/branch/1">show more</Link>
-                 </td>
-               </tr>
-               <tr>
-                 <td>2</td>
-                 <td>Al Riyad</td>
-                <td>
-                  <Link to="/branch/2">show more</Link>
-                </td>
-              </tr>
-              <tr>
-                 <td>3</td>
-                 <td>Mekkah</td>
-                 <td>
-                   <Link to="/branch/3">show more</Link>
-                 </td>
-               </tr>
-             </table>
-
-
-        </div> */}
-          <form>
-          <h3>ADD Branch..</h3>
-         <label htmlFor="id">ID:</label>
-         <br />
-         <input type="text" placeholder="ID" id="name" name="name" onChange={handleId} />
-         <br />
-         <label htmlFor="name">Name: </label>
-         <br />
-         <input type="text" placeholder="Name.." id="name" name="name" onChange={handleName} />
-         <br />
-         <label htmlFor="name">Address: </label>
-         <br />
-         <input type="text" placeholder="address" id="name" name="name" onChange={handleAddress} />
-         <br />
-         <label htmlFor="name">Phone: </label>
-         <br />
-         <input type="text" placeholder="phone.." id="name" name="name" onChange={handlePhone} />
-         <br />
-         <label htmlFor="name">Email: </label>
-         <br />
-         <input type="text" placeholder="Email :" id="name" name="name" onChange={handleEmail} />
-         <br></br>
-         <label htmlFor="id">ID:</label>
-         <br />
-         <input type="text" placeholder="ID" id="name" name="name" onChange={handleUser} />
-         <br />
-          <label htmlFor="id">img:</label>
-         <br />
-         <input type="text" placeholder="img" id="name" name="name" onChange={handleImg} /> 
-         <br />
-         <Link to="/Try1"><td><button onClick={handleClickAdd} >add..</button></td></Link>
-         <br></br>
-         <br></br>
-         </form>
-   </div>
-   );
-  }
-
+<div style={{ width: "30%", margin: "auto", height: "500px" }}>
+        {" "}
+        <form onSubmit={handleClickAdd} className="login-form">
+          <div className="form-group">
+            <input
+              type="text"
+              name="id"
+              onChange={handleId}
+              placeholder="Branch ID"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="branchname"
+              onChange={handleName}
+              placeholder="Branch Name"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="address"
+              onChange={handleAddress}
+              placeholder="Address"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              onChange={handleEmail}
+              placeholder="Email"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="tel"
+              name="tel"
+              onChange={handlePhone}
+              placeholder="Telephone"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="img"
+              name="img"
+              onChange={handleImg}
+              placeholder="img"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="username"
+              name="username"
+              onChange={handleUser}
+              placeholder="username"
+            />
+          </div>
+          <input className="btn1" type="submit" value="Add New Branch" />
+        </form>
+      </div>
+      {/* <Link to="/Room"><td><button onClick={handleClickAdd} >add..</button></td></Link> */}
+   <br></br>
+   <br></br>
+      <div>
+        <h5>All Branches will be displayed heere</h5>
+      </div>
+    </div>
+  );
+}
 
 

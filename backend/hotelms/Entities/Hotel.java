@@ -16,35 +16,25 @@ public class Hotel {
     private int phone;
     private String email;
     private String img;
-//
+
     @ManyToOne
     @JoinColumn(name = "admin_id" , referencedColumnName = "username")
     private Admin admin;
 
-//
+
     @OneToMany(mappedBy = "hotel")
     @JsonIgnore
     private List<Room> items= new ArrayList<>();
 
-//
+
     @OneToMany(mappedBy = "hotel")
     @JsonIgnore
     private List<Branch> items2= new ArrayList<>();
-//
 
 
 
 
-//    public Hotel(int idHotel, String name, String address, int phone, String email, String img, Admin admin, List<Room> items) {
-//        this.idHotel = idHotel;
-//        this.name = name;
-//        this.address = address;
-//        this.phone = phone;
-//        this.email = email;
-//        this.img = img;
-//        this.admin = admin;
-//        this.items = items;
-//    }
+
 
 
     public Hotel(int idHotel, String name, String address, int phone, String email, String img, Admin admin, List<Room> items, List<Branch> items2) {

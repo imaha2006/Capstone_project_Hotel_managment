@@ -22,13 +22,6 @@ public class Room {
     private Branch branch;
 
 
-//    public Room(String numberRoom, String typeRoom, String price, String img, Hotel hotel) {
-//        this.numberRoom = numberRoom;
-//        this.typeRoom = typeRoom;
-//        this.price = price;
-//        this.img = img;
-//        this.hotel = hotel;
-//    }
 
 
     public Room(String numberRoom, String typeRoom, String price, String img, Hotel hotel, Branch branch) {

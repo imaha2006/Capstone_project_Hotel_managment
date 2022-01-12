@@ -29,13 +29,6 @@ public class Restaurant {
         this.branch = branch;
     }
 
-//    public Restaurant(String nameMeal, String price, String type, String img, Hotel hotel) {
-//        this.nameMeal = nameMeal;
-//        this.price = price;
-//        this.type = type;
-//        this.img = img;
-//        this.hotel = hotel;
-//    }
 
     public Restaurant() {
     }

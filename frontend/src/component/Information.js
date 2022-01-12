@@ -37,8 +37,8 @@ render() {
                         <p> Address :{item.address} </p> 
                         </div>
                        <div >
-</div>
-</div>
+                      </div>
+                     </div>
                         </tr>
                     )))
                     }

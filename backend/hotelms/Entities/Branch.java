@@ -14,6 +14,7 @@ public class Branch {
     private String branchName;
     private String address;
     private int phone;
+    private String img;
 
     @ManyToOne
     @JoinColumn(name = "H_id" , referencedColumnName = "idHotel")
@@ -23,33 +24,23 @@ public class Branch {
     @OneToMany(mappedBy = "branch")
     @JsonIgnore
     private List<Room> items= new ArrayList<>();
-//
-//
-//    @OneToOne//(cascade = CascadeType.ALL)
-//    @JoinColumn(name ="B_id" )
-//    private Restaurant restaurant;
+
+
 
     public Branch() {
 
     }
 
-
-    public Branch(int id, String branchName, String address, int phone, Hotel hotel, List<Room> items) {
+    public Branch(int id, String branchName, String address, int phone, String img, Hotel hotel, List<Room> items) {
         this.id = id;
         this.branchName = branchName;
         this.address = address;
         this.phone = phone;
+        this.img = img;
         this.hotel = hotel;
         this.items = items;
     }
 
-//    public Branch(int id, String branchName, String address, int phone, Hotel hotel) {
-//        this.id = id;
-//        this.branchName = branchName;
-//        this.address = address;
-//        this.phone = phone;
-//        this.hotel = hotel;
-//    }
 
     public int getId() {
         return id;
@@ -83,6 +74,14 @@ public class Branch {
         this.phone = phone;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public Hotel getHotel() {
         return hotel;
     }
@@ -106,6 +105,9 @@ public class Branch {
                 ", branchName='" + branchName + '\'' +
                 ", address='" + address + '\'' +
                 ", phone=" + phone +
+                ", img='" + img + '\'' +
+                ", hotel=" + hotel +
+                ", items=" + items +
                 '}';
     }
 }
