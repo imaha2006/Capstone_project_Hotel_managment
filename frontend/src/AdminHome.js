@@ -19,7 +19,7 @@ export default function App() {
   function handleAddress(event) {setAddress((address= event.target.value)); }
   function handlePhone(event) {setPhone((phone= event.target.value));}
   function handleEmail(event) {setEmail((email= event.target.value));}
-  function handleUser(event) {setUsername((username= event.target.value));}
+  function handleUsername(event) {(setUsername(username= event.target.value));}
   function handleImg(event) {setImg((img= event.target.value));}
 let MyAdmin={
   username:username,
@@ -101,14 +101,14 @@ let MyAdmin={
             <input
               type="username"
               name="username"
-              onChange={handleUser}
+              onChange={handleUsername}
               placeholder="username"
             />
           </div>
           <input className="btn1" type="submit" value="Add New Branch" />
+          <Link to="/Try1"><td><button onClick={handleClickAdd} >add..</button></td></Link>
         </form>
       </div>
-      {/* <Link to="/Room"><td><button onClick={handleClickAdd} >add..</button></td></Link> */}
    <br></br>
    <br></br>
       <div>

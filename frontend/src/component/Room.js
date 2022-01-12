@@ -41,7 +41,7 @@ render() {
                         <div>
                         <p>typeRoom :{item.typeRoom} </p>
                         <p> price : {item.price}</p>
-                         <p>typeRoom :{item.hotel.name} </p> 
+                         {/* <p>typeRoom :{item.hotel.name} </p>  */}
                         <p>*****************</p>
                         </div>
                        <div >
