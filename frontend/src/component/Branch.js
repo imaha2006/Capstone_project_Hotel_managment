@@ -105,61 +105,7 @@ export default function App() {
     return (
     <div>
 
-<div style={{ width: "30%", margin: "auto", height: "500px" }}>
-        {" "}
-        <form onSubmit={handleClickAdd} className="login-form">
-          <div className="form-group">
-            <input
-              type="text"
-              name="branchName"
-              onChange={handlbranchName}
-              placeholder="BranchName"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="address"
-              onChange={handleaddress}
-              placeholder="Address"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="phone"
-              onChange={handlephone}
-              placeholder="Phone"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="img"
-              onChange={handleimg}
-              placeholder="img"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="id"
-              onChange={handleId}
-              placeholder="id"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="idHotel"
-              onChange={handleIdH}
-              placeholder="idHotel"
-            />
-          </div>
-          <input className="btn1" type="submit" value="Add New Branch" />
-          <Link to="/Branch"><td><button onClick={handleClickAdd} >add..</button></td></Link>
-        </form>
-      </div>
+
    <br></br>
    <br></br>
       <div>

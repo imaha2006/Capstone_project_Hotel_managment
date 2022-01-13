@@ -13,7 +13,7 @@ import Room from './component/Room';
   import Try1 from './Try1';
 import './index.css';
 import Information from './component/Information'
-
+import Branchs from './component/Branchs'
 
 ReactDOM.render(
 <BrowserRouter>
@@ -21,7 +21,8 @@ ReactDOM.render(
               <Route path="/" element={<Home />} > </Route> 
              <Route path="/App" element={<App/>}></Route> 
               <Route path="/Login" element={<Login />} ></Route> 
-              <Route path="/Branch/:id" element={<Branch/>}></Route> 
+              <Route path="/Branch" element={<Branch/>}></Route> 
+              <Route path="/Branchs" element={<Branchs/>}></Route> 
               <Route path="/AdminHome" element={< AdminHome />}></Route>
               <Route path="Try1" element={<Try1 />} /> 
               <Route path="/AddRoom"  element={<AddRoom />} />           

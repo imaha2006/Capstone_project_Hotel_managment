@@ -35,16 +35,14 @@ export default function App() {
     }
 
         
-  function handleClickAdd(){
+  function handleClickAdd(event){
+    event.preventDefault();
     console.log("in fun")
-    console.log(MyRoom)
-    //console.log(MyBranch)
+
     axios({
     method:'post',
     url:'api/room/add',
-    //url:'api/branch/add',
       data: MyRoom,
-      //data:MyBranch,
     });
     }
     return (
@@ -100,7 +98,7 @@ export default function App() {
               placeholder="id"
             />
           </div>
-          <input className="btn1" type="submit" value="Add New Branch" />
+          {/* <input onClick={handleClickAdd} className="btn1" type="submit" value="Add New Branch" /> */}
           <Link to="/Room"><td><button onClick={handleClickAdd} >add..</button></td></Link>
         </form>
       </div>

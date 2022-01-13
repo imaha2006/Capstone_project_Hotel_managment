@@ -4,12 +4,10 @@ import axios from "axios"
 import Navbar from "../component/Navbar"
 import "../App.css"
 import { Route } from "react-router-dom"
-//import { useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
 export default function Login(props) {
-    //const history = useHistory();
     const navigate = useNavigate();
     let [username, setname] = useState("")
     let [password, setpassword] = useState("")

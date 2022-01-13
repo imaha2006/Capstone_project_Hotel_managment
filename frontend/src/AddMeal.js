@@ -99,7 +99,7 @@ export default function App() {
               placeholder="idHotel"
             />
           </div>
-          <input className="btn1" type="submit" value="Add New Branch" />
+          <input   onClick={handleClickAdd} className="btn1" type="submit" value="Add New Branch" />
           <Link to="/Meal"><td><button onClick={handleClickAdd} >add..</button></td></Link>
         </form>
       </div>
