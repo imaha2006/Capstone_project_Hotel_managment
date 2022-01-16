@@ -22,7 +22,8 @@ function Navbar (){
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="/Login">
-                            <span class="glyphicon glypicon-log-in"></span>Logout
+                            <span class="glyphicon glypicon-log-in"></span><span onClick={()=>{localStorage.setItem("LogIn","")}}>LogOut</span>  
+
                         </a>
                     </li>
                    </ul>

@@ -40,6 +40,7 @@ function handleClick(){
             .then((res => {
                 console.log(res.data)
                 if (res.data == "welcome you Authentication") {
+                //  localStorage.setItem("LogIn", "welcome you Authentication")//noon
                   // props.handleLogin();
                   navigate('/AdminHome');
                   

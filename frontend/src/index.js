@@ -4,34 +4,23 @@ import App from './App';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './component/Home';
 import Login from './component/Login';
-import Branch from './component/Branch';
 import AdminHome from './AdminHome';
-import AddMeal from './AddMeal';
-import Meal from './component/Meal'
-import AddRoom from './AddRoom';
-import Room from './component/Room';
-  import Try1 from './Try1';
 import './index.css';
 import Information from './component/Information'
-import Branchs from './component/Branchs'
-
+import RoomsDetails from "./component/RoomsDetails"
+import MealsDetails from "./component/MealsDetails"
 ReactDOM.render(
 <BrowserRouter>
           <Routes>
               <Route path="/" element={<Home />} > </Route> 
              <Route path="/App" element={<App/>}></Route> 
-              <Route path="/Login" element={<Login />} ></Route> 
-              <Route path="/Branch" element={<Branch/>}></Route> 
-              <Route path="/Branchs" element={<Branchs/>}></Route> 
+              <Route path="/Login" element={<Login />} ></Route>  
               <Route path="/AdminHome" element={< AdminHome />}></Route>
-              <Route path="Try1" element={<Try1 />} /> 
-              <Route path="/AddRoom"  element={<AddRoom />} />           
-              <Route path="/Room"  element={<Room />} />           
-             <Route path="/addMeal" element={<AddMeal />} />
-             <Route path="/Meal" element={<Meal />} />
-             <Route path="/Information" element={<Information />} />
-             
-            
+             <Route path="/Information" element={<Information />} /> 
+             <Route  path="/rooms/:branchId" element={< RoomsDetails/>}/> 
+             <Route  path="/meals/:branchId" element={< MealsDetails/>}/> 
+          
+   
           </Routes>
        </BrowserRouter>
 

@@ -17,16 +17,11 @@ export default function App() {
     return (
         <div>
             <ul className="ul-list">
-            <Link to ='/Home'>Home</Link> |{"        "}
-            {/* <Link to='/Login'>Login</Link>|{"     "} */}
-            <Link to ='/App'>App</Link> |{"        "}
-      <Link to='/Branch'>Branch </Link>|{"   "}
-       <Link to='/AddRoom'>AddRoom</Link>|{"    "}
-       <Link to='/AddMeal'>AddMeal</Link>|{"    "} 
+            <Link to ='/Home'>Home</Link> |{"        "} 
        <Link to='/AdminHome'>AdminHome</Link>|{"    "}
-       <Link to='/Information'>Information</Link>|{"    "} 
- 
-            
+       <Link to='/Information'>Information</Link>|{"    "}   
+       <button onClick={()=>{localStorage.setItem("LogIn","")}}>LogOut</button>  
+
           </ul>
           <Outlet />
 

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios"
 import Navbar2 from "./component/Navbar2"
+import {  Link,} from "react-router-dom";
+
+
 export default class MyBranchs extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +25,10 @@ export default class MyBranchs extends Component {
 
         
    handleClickAdd(e){
+let n=localStorage.getItem("LogIn")//
   e.preventDefault()
+  if(n=="welcome you Authentication"){//
+
     axios({
     method:'post',
     url:'api/branch/add',
@@ -36,7 +42,8 @@ export default class MyBranchs extends Component {
             idHotel:1
     }
       }
-    }).then((res)=>{
+    })
+    .then((res)=>{
       let Branches=this.state.BranchsList
       Branches.push({
         id:this.state.id,
@@ -48,9 +55,9 @@ export default class MyBranchs extends Component {
             idHotel:1
     }
       })
-
+    
       this.setState({BranchsList:Branches})
-    });
+    });}//IF
     }
    handleChange(event){
     console.log(event.target.name);
@@ -82,8 +89,8 @@ let branches=[]
 <td>{item.address}</td>
 
 <td>{item.phone}</td>
-<td><button button class="bubbly" onClick={(e) => this.deleteUseGarden(item.id, e)}>Delete Branch</button></td>
-</tr>
+<td><button button class="bubbly" onClick={(e) => this.deleteUseGarden(item.id, e)}>Delete Branch</button><Link to={`/rooms/${item.id}`} /* to={{pathname:`/branch/${item.id}`,state:[item] }} */>Rooms </Link></td>
+<Link to={`/meals/${item.id}`}>Meals</Link></tr>
 }))
 
 
