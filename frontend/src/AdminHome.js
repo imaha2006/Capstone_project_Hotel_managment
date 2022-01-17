@@ -44,19 +44,13 @@ let n=localStorage.getItem("LogIn")//
       }
     })
     .then((res)=>{
-      let Branches=this.state.BranchsList
-      Branches.push({
-        id:this.state.id,
-        branchName:this.state.branchName,
-        address:this.state.address,
-        phone:this.state.phone,
-           img:this.stateimg,
-           Hotel:{
-            idHotel:1
-    }
-      })
-    
-      this.setState({BranchsList:Branches})
+      //display branches again
+      axios.get("api/branch").then(response => {
+        const BranchsList = response.data
+        
+        this.setState({ BranchsList });
+    });
+     
     });}//IF
     }
    handleChange(event){
@@ -89,8 +83,8 @@ let branches=[]
 <td>{item.address}</td>
 
 <td>{item.phone}</td>
-<td><button button class="bubbly" onClick={(e) => this.deleteUseGarden(item.id, e)}>Delete Branch</button><Link to={`/rooms/${item.id}`} /* to={{pathname:`/branch/${item.id}`,state:[item] }} */>Rooms </Link></td>
-<Link to={`/meals/${item.id}`}>Meals</Link></tr>
+<td><button button class="bubbly" onClick={(e) => this.deleteUseGarden(item.id, e)}>Delete Branch</button><Link to={`/AllRooms/`} /* to={{pathname:`/branch/${item.id}`,state:[item] }} */>AllRooms </Link></td>
+<Link to={`/AllMeals/`}>AllMeals</Link></tr>
 }))
 
 
@@ -101,7 +95,11 @@ let branches=[]
     return (
         <div >
           <Navbar2/>
-     <table style={{width:"100%"}}>
+     <table style={{width:"100%"}}
+     >
+       <br/>
+       <br/>
+      
   <tr>
     <th>Branch id</th>
     <th>Branch Name</th>

@@ -7,9 +7,7 @@ import { Link,} from "react-router-dom";
 export default class RoomsDetails extends Component {
     constructor(props) {
         super(props);
-        console.log('p>>>>>>>>>>>.');
-
-console.log(props);
+      ;
 this.state = {
             BranchsList: [],
         };
@@ -23,22 +21,21 @@ this.state = {
       
    }
    deleteUseGarden(numberRoom) {
-    axios.delete(`/api/room/delete/${numberRoom}`)
+    axios.delete(`/api/room/delete/`)
         .then(res => {
             const RoomList = this.state.RoomList.filter(item => item.numberRoom !== numberRoom);
             this.setState({ RoomList });
         })
 }
     componentDidMount() {
-   /*    console.log('!!!!!!!!11!');
-      console.log(this.props);
-        axios.get("/api/branch/1").then(response => {
-            const BranchsList = response.data
-            console.log("BranchsList");
-            console.log(BranchsList);
-            this.setState({ BranchsList });
-        }); */
-        axios.get("/api/room").then(response => {
+ let pathname=window.location.pathname
+ 
+ let branch   
+ if (pathname) {
+   let patharray=pathname.split("/")
+  branch=patharray[2]
+ } 
+ axios.get(`/api/room/getrooms/${branch}`).then(response => {
             const RoomList = response.data
             console.log('RoomList');
             console.log(RoomList);
