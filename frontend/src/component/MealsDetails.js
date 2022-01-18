@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios"
 import Navbar2 from "./Navbar2"
-
+import { Link,} from "react-router-dom";
 
 
 export default class MealsDetails extends Component {
@@ -22,18 +22,47 @@ export default class MealsDetails extends Component {
    deleteUseGarden(nameMeal) {
     axios.delete(`/api/Restaurant/delete/${nameMeal}`)
         .then(res => {
-            const MealList = this.state.MealList.filter(item => item.nameMeal !== nameMeal);
-            this.setState({ MealList });
+            /* const MealList = this.state.MealList.filter(item => item.nameMeal !== nameMeal);
+            this.setState({ MealList }); */
+            this.getBranchMeals()
         })
 }
     componentDidMount() {
-   
+   //
             axios.get("/api/Restaurant").then(response => {
                 const MealList = response.data
                 this.setState({ MealList });
                
-            });
+            }); //
+            this.getBranchMeals() //
+    }
 
+
+    getBranchMeals(){
+      let pathname=window.location.pathname
+     
+      let branch   
+      if (pathname) {
+        let patharray=pathname.split("/")
+       branch=patharray[2]
+      } 
+     
+        
+        
+            axios.get("/api/Restaurant").then(response => {
+              
+               const MealList = response.data
+              
+               let branch_meals=[]
+               MealList.forEach(item=>{
+                 if (item.branch.id==branch) {
+                  branch_meals.push(item)
+                 }
+               })
+            
+             this.setState({branch_meals
+             })
+           }); 
     }
   handleClickAdd(e){
       e.preventDefault()
@@ -52,37 +81,38 @@ export default class MealsDetails extends Component {
         img:this.state.img,
 
     }
-    console.log('MyMeal');
-
-console.log(MyMeal);    axios({
+        axios({
         method:'post',
         url:'/api/Restaurant/add',
           data: MyMeal,
+        }).then(res=>{
+          alert("New Meal was added successfully")
+          this.getBranchMeals()
         });
         }
  render() {
    
-  let {MealList}=this.state
+  let {branch_meals}=this.state
 
 
 
 let Meals=[]
-if(MealList){
-    Meals=  MealList.map((item => {
-        console.log("item");
-        console.log(item);
+if(branch_meals){
+    Meals=  branch_meals.map((item => {
+       
 
-        /**img: "https://www.sayidaty.net/sites/default/files/imce/user54794/1...jpg"
-nameMeal: "burger"
-price: "6"
-type: "dubel" */
+      
       return<tr>
+
+
+        
      <td>{item.nameMeal}</td>
      <td>{item.type}</td>
      <td>{item.price}</td>
      
-     <td><img src={item.img} width={100} height={100}/></td>
-     <td><button button  onClick={(e) => this.deleteUseGarden(item.nameMeal, e)}>Delete Meal</button></td>
+     <td><img src={item.img} width={200} height={100}/></td>
+     <td><button className="btn2"  onClick={(e) => this.deleteUseGarden(item.nameMeal, e)}>Delete Meal</button>
+     <Link to="/AdminHome"><button button className="btn2" >Go To Branch</button></Link></td>
      </tr>
      })) 
 }
@@ -99,9 +129,8 @@ type: "dubel" */
 
 
 <hr/>
-<h3 style={{textAlign:"center"}}>Meals</h3>
-
-<table style={{width:"100%"}}>
+<div className="container">
+<table id="customers" style={{width:"90%",margin:"100px auto"}}>
   <tr>
       
     <th>Meal Name</th>
@@ -115,6 +144,9 @@ type: "dubel" */
    {Meals} 
  
 </table>
+</div>
+
+
 <div style={{ width: "30%", margin: "auto", height: "500px" }}>
         {" "}
         <form onSubmit={this.handleClickAdd} className="login-form">
@@ -127,12 +159,19 @@ type: "dubel" */
             />
           </div>
           <div className="form-group">
-            <input
+           {/*  <input
               type="text"
               name="type"
               onChange={this.handleChange}
               placeholder="Type"
-            />
+            /> */}
+              <select onChange={this.handleChange} name="type">
+              <option>Type</option>
+              <option value="Normal">Normal</option>
+              <option value="Double">Double</option>
+              <option value="Trible">Trible</option>
+            
+            </select>
           </div>
           <div className="form-group">
             <input

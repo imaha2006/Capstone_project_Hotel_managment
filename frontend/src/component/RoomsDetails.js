@@ -15,33 +15,56 @@ this.state = {
        this.handleClickAdd=this.handleClickAdd.bind(this)
     }
     handleChange(event){
+      console.log("handle>>>>>>>..");
      let name=event.target.name
       let value=event.target.value
+      console.log(name);
+      console.log(value);
       this.setState({[name]:value})
       
    }
    deleteUseGarden(numberRoom) {
-    axios.delete(`/api/room/delete/`)
+    axios.delete(`/api/room/delete/${numberRoom}`)
         .then(res => {
-            const RoomList = this.state.RoomList.filter(item => item.numberRoom !== numberRoom);
-            this.setState({ RoomList });
+           /*  const RoomList = this.state.RoomList.filter(item => item.numberRoom !== numberRoom);
+            this.setState({ RoomList }); */
+            this.getBranchRooms()
         })
 }
-    componentDidMount() {
- let pathname=window.location.pathname
+
+
+getBranchRooms(){
+  let pathname=window.location.pathname
  
- let branch   
- if (pathname) {
-   let patharray=pathname.split("/")
-  branch=patharray[2]
- } 
- axios.get(`/api/room/getrooms/${branch}`).then(response => {
-            const RoomList = response.data
-            console.log('RoomList');
-            console.log(RoomList);
-            this.setState({ RoomList });
-        });
-    }
+  let branch   
+  if (pathname) {
+    let patharray=pathname.split("/")
+   branch=patharray[2]
+  } 
+ 
+    
+    
+        axios.get("/api/room").then(response => {
+           const RoomList = response.data
+           console.log(" RoomList");
+           console.log( RoomList);
+           let branch_rooms=[]
+           RoomList.forEach(item=>{
+             if (item.branch.id==branch) {
+               branch_rooms.push(item)
+             }
+           })
+         //let barnch_rooms=RoomList.filter(item=>item.brach.id==branch)
+         console.log("barnch_rooms");
+         console.log(branch_rooms);
+         this.setState({branch_rooms
+         })
+       }); 
+}
+    componentDidMount() {
+ this.getBranchRooms()
+   
+      }
     handleClickAdd(event){
         event.preventDefault();
         let Myhotel={
@@ -63,87 +86,32 @@ this.state = {
         method:'post',
         url:'/api/room/add',
           data: MyRoom,
-        });
+        }).then(res=>{
+          alert("New room was added successfuly")
+          this.getBranchRooms()})
         }
-   /*  componentDidMount() {
-        axios.get("api/branch").then(response => {
-            const BranchsList = response.data
-            
-            this.setState({ BranchsList });
-        });
-    }
-
-
-
-        
-   handleClickAdd(e){
-  e.preventDefault()
-    axios({
-    method:'post',
-    url:'api/branch/add',
-      data: {
-        id:this.state.id,
-        branchName:this.state.branchName,
-        address:this.state.address,
-        phone:this.state.phone,
-           img:this.stateimg,
-           Hotel:{
-            idHotel:1
-    }
-      }
-    }).then((res)=>{
-      let Branches=this.state.BranchsList
-      Branches.push({
-        id:this.state.id,
-        branchName:this.state.branchName,
-        address:this.state.address,
-        phone:this.state.phone,
-           img:this.stateimg,
-           Hotel:{
-            idHotel:1
-    }
-      })
-
-      this.setState({BranchsList:Branches})
-    });
-    }
-   handleChange(event){
-    console.log(event.target.name);
-    console.log(event.target.value);
-    // this.setState({[event.targert.name]:event.target.value})
-    let name=event.target.name
-    let value=event.target.value
-    this.setState({[name]:value})
-    
- }
-    deleteUseGarden(id) {
-       // console.log("Delete after Entering")
-        axios.delete(`api/branch/delete/${id}`)
-            .then(res => {
-                const BranchsList = this.state.BranchsList.filter(item => item.id!== id);
-                this.setState({ BranchsList });
-            })
-    } */
-render() {
+  render() {
    
-  let {RoomList}=this.state
+  let {branch_rooms}=this.state
 
 
 
 let Rooms=[]
-if(RoomList){
-    Rooms=  RoomList.map((item => {
+if(branch_rooms){
+    Rooms=  branch_rooms.map((item => {
       
-        console.log("item");
-        console.log(item);
+      
       return<tr>
      <td>{item.numberRoom}</td>
-     <td>{item.typeRoom}</td>,
+     <td>{item.typeRoom}</td>
      <td>{item.price}</td>
      
-     <td><img src={item.img} width={100} height={100}/></td>
-     <td><button button class="bubbly" onClick={(e) => this.deleteUseGarden(item.numberRoom, e)}>Delete Room</button></td>
+     <td><img src={item.img} width={200} height={100}/></td>
+     <td><button button className="btn2" onClick={(e) => this.deleteUseGarden(item.numberRoom, e)}>Delete Room</button>
+     <Link to="/AdminHome"><button button className="btn2" >Go To Branch</button></Link></td>
+
      </tr>
+     
      })) 
 }
       
@@ -152,10 +120,10 @@ if(RoomList){
           <Navbar2/>
 
 
-<hr/>
-<h3 style={{textAlign:"center"}}>Room</h3>
 
-<table style={{width:"100%"}}>
+
+<div className="container">
+<table style={{ width:"90%", margin:"100px auto"}} id="customers">
   <tr>
     <th>Room Number</th>
     <th>Room Type</th>
@@ -168,6 +136,8 @@ if(RoomList){
    {Rooms} 
  
 </table>
+</div>
+
 <div style={{ width: "30%", margin: "auto", height: "500px" }}>
         {" "}
         <form  onSubmit={this.handleClickAdd}  className="login-form">
@@ -177,15 +147,22 @@ if(RoomList){
               name="numberRoom"
               onChange={this.handleChange}
               placeholder="Room Number"
-            />
+         required />
           </div>
           <div className="form-group">
-            <input
+            {/* <input
               type="text"
               name="typeRoom"
               onChange={this.handleChange}
               placeholder="Room Type"
-            />
+            /> */}
+            <select onChange={this.handleChange} name="typeRoom">
+              <option>Room Type</option>
+              <option value="Single">Single</option>
+              <option value="Double">Double</option>
+              <option value="Queen">Queen</option>
+            
+            </select>
           </div>
           <div className="form-group">
             <input
@@ -193,7 +170,7 @@ if(RoomList){
               name="price"
               onChange={this.handleChange}
               placeholder="Price"
-            />
+          required />
           </div>
           <div className="form-group">
             <input
@@ -201,7 +178,7 @@ if(RoomList){
               name="img"
             onChange={this.handleChange}
               placeholder="Image URL"
-            />
+           required />
           </div>
           <div className="form-group">
             <input
@@ -209,7 +186,7 @@ if(RoomList){
               name="idHotel"
              onChange={this.handleChange}
               placeholder="Hotel ID"
-            />
+           required />
           </div>
           <div className="form-group">
             <input
@@ -217,9 +194,9 @@ if(RoomList){
               name="id"
               onChange={this.handleChange} 
               placeholder="Branch ID"
-            />
+            required/>
           </div>
-           <input className="btn1" type="submit" value="Add New Room" /> 
+           <input className="btn1" type="submit" value="Add New Room" required/> 
         
         </form>
       </div>

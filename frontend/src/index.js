@@ -9,20 +9,16 @@ import './index.css';
 import Information from './component/Information'
 import RoomsDetails from "./component/RoomsDetails"
 import MealsDetails from "./component/MealsDetails"
-import AllRooms from './component/AllRooms';
-import AllMeals from './component/AllMeals'
+
 ReactDOM.render(
 <BrowserRouter>
           <Routes>
               <Route path="/" element={<Home />} > </Route> 
              <Route path="/App" element={<App/>}></Route> 
-             <Route path="/Allrooms" element={<AllRooms/>}></Route>
-             <Route path="/Allmeals" element={<AllMeals/>}></Route>
               <Route path="/Login" element={<Login />} ></Route>  
               <Route path="/AdminHome" element={< AdminHome />}></Route>
              <Route path="/Information" element={<Information />} /> 
               <Route  path="/rooms/:branchId" element={< RoomsDetails/>}/> 
-
              <Route  path="/meals/:branchId" element={< MealsDetails/>}/>  
           
           </Routes>

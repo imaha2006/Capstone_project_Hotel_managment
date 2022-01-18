@@ -55,7 +55,7 @@ function handleClick(){
         <Navbar />
         <div className="login">
           <div className="account-login">
-            <h1>Login</h1>
+            <h1>Admin Login</h1>
             <form onSubmit={handleSubmit} className="login-form">
               <div className="form-group">
                 <input
@@ -79,28 +79,6 @@ function handleClick(){
           </div>
         </div>
       </div>
-      /*   <div>
-            <form >
-                <input
-                    type="text"
-                    value={username}
-                    name="name"
-                    placeholder=" name"
-                    onChange={handlename}
-                />
-                <input
-                    type="text"
-                    value={password}
-                    name="password"
-                    placeholder=" password"
-                    onChange={handlepassword}
-                />
-                <br />
-                <input type="submit"
-                    value="submit" onClick={handleSubmit}
-                />
-                <button onClick={handleClick}>Regst</button>
-            </form>
-        </div> */
+     
     )
 }

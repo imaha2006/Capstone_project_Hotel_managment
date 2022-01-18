@@ -25,6 +25,10 @@ export default class MyBranchs extends Component {
 
         
    handleClickAdd(e){
+
+    let Myhotel={
+      idHotel:this.state.idHotel,
+  }
 let n=localStorage.getItem("LogIn")//
   e.preventDefault()
   if(n=="welcome you Authentication"){//
@@ -37,13 +41,15 @@ let n=localStorage.getItem("LogIn")//
         branchName:this.state.branchName,
         address:this.state.address,
         phone:this.state.phone,
-           img:this.stateimg,
-           Hotel:{
-            idHotel:1
-    }
+        hotel:Myhotel,
+
+    //     hotel:{
+    //         idHotel:1
+    // }
       }
     })
     .then((res)=>{
+      alert("New branch was aded successfully")
       //display branches again
       axios.get("api/branch").then(response => {
         const BranchsList = response.data
@@ -56,7 +62,7 @@ let n=localStorage.getItem("LogIn")//
    handleChange(event){
     console.log(event.target.name);
     console.log(event.target.value);
-    // this.setState({[event.targert.name]:event.target.value})
+    // this.setState({[event.targert.name]:event.target.value}) //
     let name=event.target.name
     let value=event.target.value
     this.setState({[name]:value})
@@ -83,8 +89,13 @@ let branches=[]
 <td>{item.address}</td>
 
 <td>{item.phone}</td>
-<td><button button class="bubbly" onClick={(e) => this.deleteUseGarden(item.id, e)}>Delete Branch</button><Link to={`/AllRooms/`} /* to={{pathname:`/branch/${item.id}`,state:[item] }} */>AllRooms </Link></td>
-<Link to={`/AllMeals/`}>AllMeals</Link></tr>
+<td><button button  className="btn2"  onClick={(e) => this.deleteUseGarden(item.id, e)}>Delete Branch</button>
+<Link  /* className="btn2" */ to={`/rooms/${item.id}`} >Rooms </Link>
+
+<Link  /* className="btn2" */ to={`/meals/${item.id}`}>Meals</Link>
+</td>
+
+</tr>
 }))
 
 
@@ -95,7 +106,8 @@ let branches=[]
     return (
         <div >
           <Navbar2/>
-     <table style={{width:"100%"}}
+   <div className="container">
+   <table border style={{width:"100%",marginTop:"70px"}} id="customers"
      >
        <br/>
        <br/>
@@ -112,6 +124,7 @@ let branches=[]
  
 </table>
 
+   </div>
 <div style={{ width: "30%", margin: "auto", height: "500px" }}>
         {" "}
         <form onSubmit={this.handleClickAdd} className="login-form">
@@ -121,7 +134,7 @@ let branches=[]
               name="branchName"
               onChange={this.handleChange}
               placeholder="BranchName"
-            />
+         required />
           </div>
           <div className="form-group">
             <input
@@ -129,7 +142,7 @@ let branches=[]
               name="address"
               onChange={this.handleChange}
               placeholder="Address"
-            />
+           required /> 
           </div>
           <div className="form-group">
             <input
@@ -137,15 +150,7 @@ let branches=[]
               name="phone"
               onChange={this.handleChange}
               placeholder="Phone"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="img"
-              onChange={this.handleChange}
-              placeholder="img"
-            />
+         required />
           </div>
           <div className="form-group">
             <input
@@ -153,17 +158,17 @@ let branches=[]
               name="id"
               onChange={this.handleChange}
               placeholder="id"
-            />
+         required />
           </div>
-        {/*   <div className="form-group">
+          <div className="form-group">
             <input
               type="text"
               name="idHotel"
               onChange={this.handleChange}
               placeholder="idHotel"
-            />
-          </div> */}
-          <input className="btn1" type="submit" value="Add New Branch" />
+            required />
+          </div>
+          <input className="btn1" type="submit" value="Add New Branch" required />
 {/* <Link to="/Branchs"><td><button onClick={this.handleClickAdd} >add..</button></td></Link> */}
         </form>
       </div>
